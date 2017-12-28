@@ -4,29 +4,17 @@
 #Classe note, définie par son nom US et son nom français
 class Note:
 
-    def __init__(self, usName_n, frName_n):
-        self.usName = usName_n
-        self.frName = frName_n
-
-A = Note("A", "La")
-B = Note("B", "Si")
-C = Note("C", "Do")
-D = Note("D", "Ré")
-E = Note("E", "Mi")
-F = Note("F", "Fa")
-G = Note("G", "Sol")
+    def __init__(self, anName_n, laName_n):
+        self.anName = anName_n
+        self.laName = laName_n
 
 
-#Classe note jouée, définie par une note, un doigt et une frette
+#Classe note jouée, définie par un doigt et une frette
 class NoteJouee(Note):
 
-    note = Note("0", "0")
-
-    def __init__(self, note_n, doigt_n, frette_n, corde_n):
-        self.note = Note.__init__(note_n, note_n.usName, note_n.frName)
+    def __init__(self, doigt_n, frette_n):
         self.doigt = doigt_n
         self.frette = frette_n
-        self.corde = corde_n
 
 
 #Classe accord, défini par les notes le composant et la manière dont celles-ci sont jouées
@@ -34,7 +22,31 @@ class Accord:
 
     tabNotesJouees = []
 
-    def __init__(self, image, *note):
-        self.tabNotesJouees.append(note)
+    def __init__(self, nom_n, *notesJouees):
+            self.nom = nom_n
+            self.tabNotesJouees = notesJouees
 
-Am = Accord(NoteJouee(E, 0, 0, 1), NoteJouee(C, 1, 1, 2), NoteJouee(A, 2, 2, 3), NoteJouee(E, 3, 2, 4), NoteJouee(A, 0, 5, 0))
+
+#Classe table accords, permettant de stocker l'ensemble des accords
+class TableAccords:
+
+    tabAccords = []
+
+    def __init__(self, *accords):
+        self.tabAccords = accords
+
+
+#Classe display, permettant d'afficher divers éléments
+class Display:
+
+    def __init__(self):
+        pass
+    #SFML ici
+
+
+#Classe display accord, permettant d'afficher les informations relatives à un accord
+class DisplayAccord(Display):
+
+    def __init__(self):
+        pass
+    #SFML ici
